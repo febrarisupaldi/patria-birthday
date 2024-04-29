@@ -33,7 +33,7 @@ class PatriaFriendController extends Controller
         $data = $this->patriaFriendService->showTodayBirthday();
         if(count($data) > 0){
             try {
-                foreach(['febsupaldi@gmail.com','nopiahirawan26@gmail.com'] as $receipent){
+                foreach(['febsupaldi@gmail.com','nopiahirawan26@gmail.com','raralingling10@gmail.com'] as $receipent){
                     Mail::to($receipent)->send(new NotifBirthdayMail($data));
                 }
                 return response()->json(["status"=>"ok","message"=>"ok","data"=>$data],200);
