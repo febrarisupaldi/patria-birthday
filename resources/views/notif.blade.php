@@ -104,7 +104,7 @@
                         <tr>
                             <td class="wrapper" style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top; box-sizing: border-box; padding: 24px;" valign="top">
                                 <div style="max-width:600px; margin-bottom:-20px" align="center">
-                                    <img src="{{ embed( public_path().'img/dpac-patria-2.png') }}" width="200px" height="200px" />
+                                    <img src="{{ $message->embed(public_path() . '/img/dpac-patria-2.png') }}" width="200px" height="200px" />
                                 </div>
                                 <p style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">Dear Friends</p>
                                 <p style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">Berikut daftar temanmu yang ulang tahun hari ini:</p>

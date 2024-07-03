@@ -40,21 +40,21 @@ class PatriaFriendController extends Controller
         $data = $this->patriaFriendService->showTodayBirthday();
         if (count($data) == 0)
             $data = [];
-        return view("notif", ["data" => $data]);
+        return view("email", ["data" => $data]);
     }
 
     public function sendEmailNotif(): JsonResponse
     {
         $data = $this->patriaFriendService->showTodayBirthday();
         if (count($data) > 0) {
-            //try {
-                foreach (['febsupaldi@gmail.com'] as $receipent) {
+            try {
+                foreach (['febsupaldi@gmail.com', 'nopiahirawan26@gmail.com', 'raralingling10@gmail.com'] as $receipent) {
                     Mail::to($receipent)->send(new NotifBirthdayMail($data));
                 }
                 return response()->json(["status" => "ok", "message" => "ok", "data" => $data], 200);
-            // } catch (\Throwable $th) {
-            //     return response()->json(["status" => "error", "message" => "error", "data" => $data], 500);
-            // }
+            } catch (\Throwable $th) {
+                return response()->json(["status" => "error", "message" => "error", "data" => $data], 500);
+            }
         }
 
         return response()->json(["status" => "error", "message" => "error", "data" => "not found"], 200);
