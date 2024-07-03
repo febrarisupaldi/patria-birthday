@@ -26,8 +26,10 @@ Route::get("/patria/today", [PatriaFriendController::class, 'showTodayBirthday']
 Route::get("/patria/send-notif", [PatriaFriendController::class, 'sendEmailNotif']);
 Route::post("/patria/friend", [PatriaFriendController::class, 'saveFriend']);
 
+Route::get("/email", function () {
+    return view('email');
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
